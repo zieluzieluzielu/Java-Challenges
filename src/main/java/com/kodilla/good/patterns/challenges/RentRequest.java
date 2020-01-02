@@ -7,21 +7,21 @@ public class RentRequest {
     private User user;
     private LocalDateTime rentFrom;
     private LocalDateTime rentTo;
-    private Car car;
+    private Item item;
 
-    RentRequest(User user, Car car, LocalDateTime rentFrom, LocalDateTime rentTo) {
+    RentRequest(User user, Item item, LocalDateTime rentFrom, LocalDateTime rentTo) {
         this.user = user;
         this.rentFrom = rentFrom;
         this.rentTo = rentTo;
-        this.car = car;
+        this.item = item;
     }
 
     public User getUser() {
         return user;
     }
 
-    Car getCar() {
-        return car;
+    Item getItem() {
+        return item;
     }
 
     LocalDateTime getFrom() {
