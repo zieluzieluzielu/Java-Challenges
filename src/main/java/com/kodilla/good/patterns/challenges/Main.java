@@ -1,16 +1,17 @@
 package com.kodilla.good.patterns.challenges;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 public class Main {
 
-    public static  void main (String[] args) {
-        MovieStore movieStore = new MovieStore();
+    public static void main(String[] args) {
+        RentRequestRetriever rentRequestRetriever = new RentRequestRetriever();
+        RentRequest rentRequest = rentRequestRetriever.retrieve();
 
-        String movieList = movieStore.getMovies().values().stream().flatMap(List::stream).collect(Collectors.joining("!"));
+        ProductOrderService productOrderService = new ProductOrderService(new MailService(), new CarRentalService(), new CarRentalRepository());
+        productOrderService.process(rentRequest);
 
-        System.out.println(movieList);
+//        MovieStore movieStore = new MovieStore();
+//        String movieList = movieStore.getMovies().values().stream().flatMap(List::stream).collect(Collectors.joining("!"));
+//        System.out.println(movieList);
     }
 
 }
