@@ -15,7 +15,7 @@ class PriceCounter {
 
     double getPrice() {
         Double pricePerDay = 25.00;
-        return daysElapsed* pricePerDay;
+        return daysElapsed * pricePerDay;
     }
 
 }

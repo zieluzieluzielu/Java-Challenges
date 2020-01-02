@@ -15,7 +15,7 @@ public class User {
 
     @Override
     public String toString() {
-        return name +" "+ surname ;
+        return name + " " + surname;
     }
 
     public String getMailAdress() {

@@ -4,6 +4,6 @@ public class MailService implements InformationService {
 
     @Override
     public void inform(User user) {
-        System.out.println("Sending an email to: "+user.getMailAdress()+"...");
+        System.out.println("Sending an email to: " + user.getMailAdress() + "...");
     }
 }
