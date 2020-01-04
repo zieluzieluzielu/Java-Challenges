@@ -12,7 +12,6 @@ class FlightList {
     private Airport ztm = new Airport("ZTM");
     private Airport pln = new Airport("PLN");
 
-
     ArrayList<Flight> flightList() {
         ArrayList<Flight> getFlights = new ArrayList<>();
         getFlights.add(new Flight(pln, abc));
