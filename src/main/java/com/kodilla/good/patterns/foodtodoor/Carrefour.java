@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Carrefour implements Producer {
-    ProductStock productStock = new ProductStock();
-    String city;
-    String producerName = "Carrefour";
-
-    HashMap<Product, Double> productMap = new HashMap<>();
+    private ProductStock productStock = new ProductStock();
+    private String city;
+    private String producerName = "Carrefour";
 
     Carrefour(String city) {
         this.city = city;

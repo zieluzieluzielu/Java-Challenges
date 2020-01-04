@@ -1,9 +1,9 @@
 package com.kodilla.good.patterns.foodtodoor;
 
 class ProductStock {
-    Product eggs = new Product("Eggs");
-    Product milk = new Product("Milk");
-    Product coffee = new Product("Coffee");
+    private Product eggs = new Product("Eggs");
+    private Product milk = new Product("Milk");
+    private Product coffee = new Product("Coffee");
 
     Product getEggs() {
         return eggs;

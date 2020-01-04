@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Lidl implements Producer {
-    ProductStock productStock = new ProductStock();
-    String city;
-    String producerName = "Lidl";
+    private ProductStock productStock = new ProductStock();
+    private String city;
+    private String producerName = "Lidl";
 
     Lidl(String city) {
         this.city = city;

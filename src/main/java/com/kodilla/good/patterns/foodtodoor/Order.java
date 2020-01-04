@@ -11,7 +11,7 @@ class Order {
         this.amount = amount;
     }
 
-    public Producer getProducer() {
+    Producer getProducer() {
         return producer;
     }
 
