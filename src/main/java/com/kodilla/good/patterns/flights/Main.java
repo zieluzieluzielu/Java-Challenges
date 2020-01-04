@@ -2,26 +2,24 @@ package com.kodilla.good.patterns.flights;
 
 public class Main {
 
-    //zapisana lista wszystkich lotów GDANSK -> WROCLAW
-    //wyszukiwanie lotow z podanego miasta
-    //wyszukiwanie lotow do podanego miasta
-    //wyszukiwanie lotow poprzez inne miasto miasto
-
-
-    //stream
-    //equals
-    //hashcode
-
-
     public static void main(String[] args) {
+        Airport mxn = new Airport("MXN");
+        Airport bxl = new Airport("BXL");
+        Airport ztm = new Airport("ZTM");
+        Airport pln = new Airport("PLN");
+
+        FlightList flightList = new FlightList();
+        FlightFinder flightFinder = new FlightFinder();
+
+        flightFinder.findFlightFrom(ztm, flightList.flightList());
+
+        flightFinder.findFlightTo(pln, flightList.flightList());
+
+        flightFinder.findDirectFlight(mxn, bxl, flightList.flightList());
+        flightFinder.findDirectFlight(bxl, bxl, flightList.flightList());
+
+        flightFinder.findIndirectFlight(pln, mxn, flightList.flightList());
+        flightFinder.findIndirectFlight(ztm, ztm, flightList.flightList());
 
     }
 }
-
-
-/*
-MAP <connection,date>
-
-Connection
-
- */
