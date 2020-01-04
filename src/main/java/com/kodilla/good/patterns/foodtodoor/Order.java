@@ -11,7 +11,7 @@ class Order {
         this.amount = amount;
     }
 
-    Producer getProducer() {
+    public Producer getProducer() {
         return producer;
     }
 
@@ -25,6 +25,6 @@ class Order {
 
     @Override
     public String toString() {
-        return producer+" "+product+" "+amount;
+        return producer + " " + product + " " + amount;
     }
 }

@@ -7,35 +7,56 @@ public class Lidl implements Producer {
     ProductStock productStock = new ProductStock();
     String city;
     String producerName = "Lidl";
-    Integer shopNumber;
 
-    private HashMap<Product, Double> productMap = new HashMap<>();
-
-    Lidl(String city, Integer shopNumber) {
+    Lidl(String city) {
         this.city = city;
-        this.shopNumber = shopNumber;
+    }
+
+    @Override
+    public String getProducerName() {
+        return producerName;
     }
 
     @Override
     public String toString() {
+        return producerName + "(" + city + ")";
+    }
 
-        return producerName + "(" + city + " #" + shopNumber + ")";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Lidl lidl = (Lidl) o;
+
+        return producerName != null ? producerName.equals(lidl.producerName) : lidl.producerName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return producerName != null ? producerName.hashCode() : 0;
     }
 
     @Override
     public Map<Product, Double> getProducerStock() {
         Map<Product, Double> producerStock = new HashMap<>();
-        producerStock.put(productStock.getEggs(), 6.0);
+        producerStock.put(productStock.getEggs(), 7.0);
         producerStock.put(productStock.getMilk(), 2.0);
         producerStock.put(productStock.getCoffee(), 20.0);
         return producerStock;
     }
 
     @Override
-    public void addProductToStock(Product product, Double amount) {
-        productMap.put(product, amount);
+    public boolean process(Order order) {
+        Product product = order.getProduct();
+        Double amount = order.getAmount();
+        if (getProducerStock().get(product) >= amount) {
+            System.out.println("Order to " + toString() + ":\n" + product + " [" + amount + "] was successfully processed.\n");
+            return true;
+        } else
+            System.out.println("Order to " + toString() + ":\nOrder of " + product + " [" + amount + "] can't be processed. Producer has only " + getProducerStock().get(product) + " of " + product + ".\n");
+        return false;
+
     }
-
-
 
 }

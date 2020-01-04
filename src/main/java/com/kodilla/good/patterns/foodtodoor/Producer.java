@@ -6,8 +6,12 @@ public interface Producer {
 
     Map<Product, Double> getProducerStock();
 
-    void addProductToStock(Product product, Double amount);
+    String getProducerName();
 
+    boolean process(Order order);
+
+    boolean equals(Object o);
+    int hashCode();
 
 
 }
