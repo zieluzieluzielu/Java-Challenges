@@ -14,13 +14,8 @@ class OrderProcessor {
     }
 
     void process(Order order) {
-        if (order.getProducer().getProducerName().equals("Carrefour")) {
-            addOrder(order.getProducer(), order);
-        } else if (order.getProducer().getProducerName().equals("Lidl")) {
-            addOrder(order.getProducer(), order);
-        } else {
-            System.out.println("Order can't be processed. Producer not found");
-        }
+        addOrder(order.getProducer(), order);
+
     }
 
     @Override
