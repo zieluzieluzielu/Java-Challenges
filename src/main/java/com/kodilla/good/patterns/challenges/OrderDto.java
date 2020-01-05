@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.challenges;
 
-public class RentalDto {
-    User user;
-    boolean bool;
+class OrderDto {
+    private User user;
+    private boolean bool;
 
-    RentalDto(User user, boolean bool) {
+    OrderDto(User user, boolean bool) {
         this.user = user;
         this.bool = bool;
     }

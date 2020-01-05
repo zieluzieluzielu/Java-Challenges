@@ -3,28 +3,28 @@ package com.kodilla.good.patterns.challenges;
 class ProductOrderService {
 
     private InformationService informationService;
-    private RentalService rentalService;
-    private RentalRepository rentalRepository;
+    private OrderService orderService;
+    private OrderRepository orderRepository;
 
     ProductOrderService(final InformationService informationService,
-                        final RentalService rentalService,
-                        final RentalRepository rentalRepository) {
+                        final OrderService orderService,
+                        final OrderRepository rentalRepository) {
         this.informationService = informationService;
-        this.rentalService = rentalService;
-        this.rentalRepository = rentalRepository;
+        this.orderService = orderService;
+        this.orderRepository = rentalRepository;
     }
+    OrderDto process(final OrderRequest orderRequest) {
+        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getItem(), orderRequest.getAmount(),
+                orderRequest.getOrderDate());
 
-    RentalDto process(final RentRequest rentRequest) {
-        boolean isRented = rentalService.rent(rentRequest.getUser(), rentRequest.getItem(), rentRequest.getFrom(),
-                rentRequest.getTo());
-
-        if (isRented) {
-            rentalRepository.createRental(rentRequest.getUser(), rentRequest.getItem(), rentRequest.getFrom(), rentRequest.getTo());
-            rentalRepository.countPrice();
-            informationService.inform(rentRequest.getUser(),rentRequest.getItem());
-            return new RentalDto(rentRequest.getUser(), true);
+        if (isOrdered) {
+            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getItem(), orderRequest.getAmount(),
+                    orderRequest.getOrderDate());
+            orderRepository.countPrice(orderRequest);
+            informationService.inform(orderRequest.getUser(),orderRequest.getItem(),orderRequest);
+            return new OrderDto(orderRequest.getUser(), true);
         } else {
-            return new RentalDto(rentRequest.getUser(), false);
+            return new OrderDto(orderRequest.getUser(), false);
         }
     }
 }

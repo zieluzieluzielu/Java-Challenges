@@ -18,11 +18,11 @@ public class User {
         return name + " " + surname;
     }
 
-    public String getMailAdress() {
+    String getMailAdress() {
         return mailAdress;
     }
 
-    public String getPhoneNumber() {
+    String getPhoneNumber() {
         return phoneNumber;
     }
 

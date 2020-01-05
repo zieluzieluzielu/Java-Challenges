@@ -4,4 +4,5 @@ public interface Item {
 
     String itemDescription();
 
+    Double price();
 }

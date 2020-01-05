@@ -2,24 +2,32 @@ package com.kodilla.good.patterns.challenges;
 
 public class Car implements Item {
 
-    String car;
-    String model;
-    Integer year;
+    private String car;
+    private String model;
+    private Integer year;
+    private Double price;
 
-    public Car(String car, String model, Integer year) {
+    Car(String car, String model, Integer year, Double price) {
         this.car = car;
         this.model = model;
         this.year = year;
+        this.price = price;
+
     }
 
     @Override
     public String toString() {
-        return "Car: " + car + " " + model+" ("+year+")";
+        return "car: " + car + " " + model + " (" + year + ")";
     }
 
+    @Override
     public String itemDescription() {
-        return car+ ", model: "+model+" which was produced in "+year;
+        return car + ", model: " + model + " was produced in " + year;
 
     }
 
+    @Override
+    public Double price() {
+        return price;
+    }
 }
